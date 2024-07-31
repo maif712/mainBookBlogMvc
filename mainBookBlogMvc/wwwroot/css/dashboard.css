@@ -1,0 +1,207 @@
+/* Dashboard */
+.dashboard__title {
+    font-family: "roboto";
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    letter-spacing: 0.1em;
+}
+
+.dashboard__create-btn {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background-color: #508D4E;
+    color: #D6EFD8;
+    max-width: fit-content;
+    padding: 0.5rem 1rem;
+    font-size: 1.135rem;
+    font-family: "poppins";
+    border-radius: 4px;
+    text-transform: capitalize;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.dashboard__create-btn:hover,
+.dashboard__create-btn:focus-visible {
+    background-color: #1A5319;
+}
+
+.dashboard__create-btn img {
+    background-color: #D6EFD8;
+    border-radius: 100vh;
+}
+
+/* --filter section */
+.filters-wrapper {
+    background-color: #134B70;
+    padding: 0.5rem 1rem;
+    margin-block-start: 3rem;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filters-wrapper ul {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.filters__link,
+.filters__link--reset {
+    font-family: 'poppins';
+    text-transform: capitalize;
+    font-weight: 500;
+    display: flex;
+    gap: 1rem;
+    color: #f0f0f0;
+    position: relative;
+    -webkit-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+
+
+.filters__link:hover,
+.filters__link:focus-visible,
+.filters__link--reset:hover,
+.filters__link--reset:focus-visible {
+    color: #E68369;
+}
+
+.filters__link::after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 70%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -13px;
+    background-color: #EEEEEE;
+}
+
+/* --end */
+
+.dashboard__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block-start: 1rem;
+    background-color: var(--amber-100);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 8px;
+}
+
+.dashboard__table th {
+    text-align: left;
+    background-color: #EEEDEB;
+    padding: 0.5rem;
+    font-family: 'roboto';
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.dashboard__table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.dashboard__table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.dashboard__table td {
+    padding: 1rem 0.5rem;
+    font-family: 'poppins';
+}
+
+.dashboard__table tr td:last-child {
+    width: 150px;
+}
+
+.dashboard__table tr:nth-child(even) {
+    background-color: #e1ecec;
+}
+
+.table__slider-col .check-icon-slider,
+.table__slider-col .close-icon-slider {
+    padding: 0.3rem;
+    border-radius: 100vh;
+}
+
+.table__slider-col .check-icon-slider {
+    background-color: #88D66C;
+}
+
+.table__slider-col .close-icon-slider {
+    background-color: #FF7777;
+}
+
+.dashboard-table__action-btn {
+    padding: 0.2rem;
+    border-radius: 4px;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.dashboard-table__action-btn:hover::before,
+.dashboard-table__action-btn:hover::after,
+.dashboard-table__action-btn:focus-visible::before,
+.dashboard-table__action-btn:focus-visible::after {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.dashboard-table__action-btn::before,
+.dashboard-table__action-btn::after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'poppins';
+    text-transform: capitalize;
+    -webkit-transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: 600;
+}
+
+.dashboard-table__action-btn::before {
+    content: attr(data-title);
+    background-color: var(--bg-clr);
+    top: -37px;
+    width: fit-content;
+    padding: 0.2rem 1rem;
+    border-radius: 4px;
+    color: #1A3636;
+    font-size: 0.9rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.dashboard-table__action-btn::after {
+    content: "";
+    border: 5px solid transparent;
+    border-color: var(--bg-clr) transparent transparent transparent;
+    top: -9px;
+}
+
+
+.view-icon {
+    background-color: var(--bg-clr);
+}
+
+.edit-icon {
+    background-color: var(--bg-clr);
+
+}
+
+.del-icon {
+    background-color: var(--bg-clr);
+}
+
+
+
+/* End */

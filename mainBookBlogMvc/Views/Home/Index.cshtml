@@ -1,0 +1,105 @@
+﻿@model List<Book>
+
+@{
+    var booksInSlider = Model.Where(book => book.InSlider == true).ToList();
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/slider.css">
+    <link rel="stylesheet" href="~/css/product.css">
+}
+
+
+<!-- Slider section -->
+<section class="slider">
+    <div class="md-m-block slider-split container">
+        <div class="relative p-1 pl-none">
+            <h1 class="slider__main-title">new books</h1>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id, eveniet.
+            </p>
+            <!-- slider navigation buttons -->
+            <div class="slider__navigation">
+                <button class="slider__btn slider__btn--prev">
+                    <img src="./assets/images/icons/arrow-back-icon.svg" alt="left arrow">
+                </button>
+                <button class="slider__btn slider__btn--next">
+                    <img src="./assets/images/icons/arrow-forward-icon.svg" alt="right arrow">
+                </button>
+            </div>
+            <!-- End -->
+        </div>
+        <div class="slider-wrapper">
+            @foreach (var book in booksInSlider)
+            {
+                <!-- Slider card instance -->
+                <div class="slider-card">
+                    <h2 class="slider-card__title">
+                        <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">@book.Title</a>
+                    </h2>
+                    <p class="slider-card__para">
+                        @if (book.Description.Length > 200)
+                        {
+                            @(book.Description.Substring(0, 200) + "...")
+                        }
+                        else
+                        {
+                            @book.Description
+                        }
+                    </p>
+                    <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id" class="slider-card__view-more">view more</a>
+                </div>
+                <!-- End -->
+            }
+        </div>
+    </div>
+</section>
+<!-- End -->
+<!-- Main section, products list -->
+<main class="md-m-block">
+    <div class="container">
+        <!-- Products container/wrapper -->
+        <div class="products-list">
+            @foreach (var book in Model)
+            {
+                <!-- Product card instance -->
+                <div class="product-card">
+                    <div class="p-1 text-center">
+                        <h2 class="product-card__title">@book.Title</h2>
+                        <p class="product-card__para">
+                            @if (book.Description.Length > 200)
+                            {
+                                @(book.Description.Substring(0, 200) + "...")
+                            }
+                            else
+                            {
+                                @book.Description
+                            }
+                        </p>
+                    </div>
+                    <div class="product-card__des">
+                        <div class="product-card__des-group">
+                            <span class="product-card__span">author</span>
+                            <span class="product-card__a">@book.AuthorName</span>
+                        </div>
+                        <div class="product-card__des-group">
+                            <span class="product-card__span">publisher</span>
+                            <span class="product-card__a">@book.Publisher</span>
+                        </div>
+                    </div>
+                    <div class="product-card__view-more">
+                        <a class="product-card__view-more-btn" asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">view more</a>
+                    </div>
+                </div>
+                <!-- End -->
+            }
+        </div>
+        <!-- End -->
+    </div>
+</main>
+<!-- End -->
+
+
+@section Scripts {
+    <script src="~/js/slider.js"></script>
+}

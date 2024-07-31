@@ -1,0 +1,119 @@
+
+
+/* Books list */
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.product-card {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    background-color: var(--amber-100);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 370px;
+}
+
+.product-card__title {
+    font-family: 'roboto';
+    font-size: 1.9rem;
+    text-transform: capitalize;
+    color: var(--black);
+    margin-block-end: 1.2rem;
+}
+
+.product-card__para {
+    font-family: 'poppins';
+    color: #747e8d;
+}
+
+.product-card__des {
+    background-color: var(--grayish-blue-400);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto;
+}
+
+.product-card__des-group {
+    display: grid;
+    place-items: center;
+}
+
+.product-card__span {
+    font-family: 'roboto';
+    font-size: 0.9rem;
+    color: var(--amber-100);
+    text-transform: uppercase;
+}
+
+.product-card__a {
+    font-family: 'poppins';
+    font-size: 0.8rem;
+    color: #D4BDAC;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.product-card__view-more {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    inset: 10px;
+    border-radius: 4px;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.product-card__view-more-btn {
+    font-family: 'poppins';
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--amber-200);
+    border-radius: 100vh;
+    border: 1px solid var(--amber-100);
+    display: block;
+    padding: 0.5rem 1rem;
+    width: max-content;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    text-transform: capitalize;
+    -webkit-transform: translate(-50%, 80%);
+    transform: translate(-50%, 80%);
+    -webkit-transition: transform 0.3s ease-in-out,
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out,
+        opacity 0.3s ease-in-out,
+        border-color 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out,
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out,
+        opacity 0.3s ease-in-out,
+        border-color 0.3s ease-in-out;
+}
+
+.product-card__view-more-btn:hover,
+.product-card__view-more-btn:focus-visible {
+    background-color: var(--amber-800);
+    color: var(--black);
+    border-color: var(--amber-800);
+}
+
+.product-card:hover .product-card__view-more {
+    opacity: 1;
+}
+
+.product-card:hover .product-card__view-more-btn {
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 1;
+
+}
+
+/* End */

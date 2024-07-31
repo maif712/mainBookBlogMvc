@@ -1,0 +1,184 @@
+/* Slider section */
+.slider-split {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: 450px;
+    position: relative;
+}
+
+.slider-split::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(to left, var(--amber-400), transparent);
+    z-index: 10;
+}
+
+.slider__main-title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    line-height: 1.2;
+    font-family: 'poppins';
+    font-weight: 700;
+    max-width: 75%;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-color: #fb8146;
+    background-image: linear-gradient(62deg, #fb8146 0%, #ffca3d 100%);
+}
+
+.slider__navigation {
+    display: flex;
+    gap: 0.5rem;
+    position: absolute;
+    left: 0;
+    bottom: 16px;
+}
+
+.slider__btn {
+    background-color: var(--amber-100);
+    border-radius: 4px;
+    width: 40px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    -webkit-transition: border-color 0.2s ease-in-out;
+    transition: border-color 0.2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.slider__btn img {
+    pointer-events: none;
+}
+
+.slider__btn:hover,
+.slider__btn:focus-visible {
+    border-color: var(--amber-800);
+}
+
+.slider-wrapper {
+    position: relative;
+    grid-column: 2;
+    overflow-x: hidden;
+}
+
+.slider-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--amber-900);
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    max-height: 450px;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.slider-card:nth-child(1) {
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.slider-card:nth-child(2) {
+    top: 50%;
+    left: 0;
+    -webkit-transform: translate(350px, -50%);
+    transform: translate(350px, -50%);
+    scale: 0.9;
+    z-index: 2;
+}
+
+.slider-card:nth-child(3) {
+    top: 50%;
+    left: 0;
+    -webkit-transform: translate(680px, -50%);
+    transform: translate(680px, -50%);
+    scale: 0.9;
+    z-index: 2;
+}
+
+.slider-card:nth-child(n + 4) {
+    top: 50%;
+    left: 0;
+    -webkit-transform: translate(1000px, -50%);
+    transform: translate(1000px, -50%);
+    scale: 0.9;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.slider-card__title a {
+    font-family: 'roboto';
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--black);
+    letter-spacing: 0.2em;
+    position: relative;
+    padding-bottom: 0.5rem;
+
+}
+
+.slider-card__title a::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #8D493A;
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    -webkit-transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+}
+
+.slider-card__title a:hover::after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+}
+
+.slider-card__para {
+    font-family: 'poppins';
+    color: var(--amber-200);
+}
+
+.slider-card__view-more {
+    text-transform: capitalize;
+    font-family: 'poppins';
+    font-weight: 500;
+    border: 1px solid var(--amber-400);
+    width: max-content;
+    padding: 0.5rem 1rem;
+    border-radius: 100vh;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    margin-top: auto;
+}
+
+.slider-card__view-more:hover,
+.slider-card__view-more:focus-visible {
+    background-color: var(--amber-400);
+    color: var(--amber-900);
+}
+
+/* End */

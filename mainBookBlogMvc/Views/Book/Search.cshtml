@@ -1,0 +1,58 @@
+﻿@model List<Book>
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/product.css">
+}
+
+@if (Model.Count == 0)
+{
+    <div class="container">
+        <div class="md-m-block">
+            <h2>Not found</h2>
+        </div>
+    </div>
+}
+else
+{
+    <main class="md-m-block">
+        <div class="container">
+            <!-- Products container/wrapper -->
+            <div class="products-list">
+                @foreach (var book in Model)
+                {
+                    <!-- Product card instance -->
+                    <div class="product-card">
+                        <div class="p-1 text-center">
+                            <h2 class="product-card__title">@book.Title</h2>
+                            <p class="product-card__para">
+                                @if (book.Description.Length > 200)
+                                {
+                                    @(book.Description.Substring(0, 200) + "...")
+                                }
+                                else
+                                {
+                                    @book.Description
+                                }
+                            </p>
+                        </div>
+                        <div class="product-card__des">
+                            <div class="product-card__des-group">
+                                <span class="product-card__span">author</span>
+                                <span class="product-card__a">@book.AuthorName</span>
+                            </div>
+                            <div class="product-card__des-group">
+                                <span class="product-card__span">publisher</span>
+                                <span class="product-card__a">@book.Publisher</span>
+                            </div>
+                        </div>
+                        <div class="product-card__view-more">
+                            <a class="product-card__view-more-btn" asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">view more</a>
+                        </div>
+                    </div>
+                    <!-- End -->
+                }
+            </div>
+            <!-- End -->
+        </div>
+    </main>
+}

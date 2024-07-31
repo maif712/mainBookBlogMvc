@@ -1,0 +1,57 @@
+
+/* Single product */
+.single-layout {
+    background-color: var(--amber-100);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.single__title {
+    font-family: 'roboto';
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 2.5rem;
+    color: var(--black);
+}
+
+.single__para {
+    font-family: 'poppins';
+    color: #676b72;
+    max-width: 70%;
+    line-height: 1.8;
+}
+
+.single__des {
+    margin-block-start: 2rem;
+    display: grid;
+    gap: 1rem;
+    border-top: 1px solid #d7dce7;
+    padding-block-start: 1rem;
+}
+
+.single__span {
+    font-family: "poppins";
+    text-transform: capitalize;
+}
+
+.single__a {
+    font-family: 'poppins';
+    font-size: 1.125rem;
+    background-color: #DCF2F1;
+    padding: 0.2rem 1.2rem;
+    border-radius: 100vh;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: #365486;
+    -webkit-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+
+.single__a:hover,
+.single__a:focus-visible {
+    color: #0F1035;
+}
+
+
+
+/* End */

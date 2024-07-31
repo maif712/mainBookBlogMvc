@@ -1,0 +1,30 @@
+﻿
+@model Book
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/single.css">
+}
+
+
+<!-- Single -->
+<main class="mt-7">
+    <div class="container">
+        <div class="single-layout">
+            <h1 class="single__title">@Model.Title</h1>
+            <p class="single__para">
+                @Model.Description
+            </p>
+            <div class="single__des">
+                <div>
+                    <span class="single__span">author: </span>
+                    <a href="#" class="single__a">@Model.AuthorName</a>
+                </div>
+                <div>
+                    <span class="single__span">publisher: </span>
+                    <a href="#" class="single__a">@Model.Publisher</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- End -->

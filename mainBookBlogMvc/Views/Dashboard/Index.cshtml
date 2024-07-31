@@ -1,0 +1,131 @@
+﻿@model List<Book>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/dashboard.css">
+}
+
+<!-- Dashboard main -->
+<main class="md-m-block">
+    <div class="container">
+        <h1 class="dashboard__title">dashboard</h1>
+        <div>
+            <a asp-controller="Book" asp-action="Create" class="dashboard__create-btn">
+                create new book
+                <img src="./assets/images/icons/add-icon.svg" alt="plus icon">
+            </a>
+        </div>
+        <div class="filters-wrapper">
+            <ul aria-label="Sorting navigation">
+                <li>
+                    <a asp-action="Index" asp-route-filterString="title" class="filters__link">
+                        book name
+                        <img src="./assets/images/icons/swap-vert-icon.svg" alt="sort icon">
+                    </a>
+                </li>
+                <li>
+                    <a asp-action="Index" asp-route-filterString="author" class="filters__link" >
+                        author
+                        <img src="./assets/images/icons/swap-vert-icon.svg" alt="sort icon">
+                    </a>
+                </li>
+                <li>
+                    <a asp-action="Index" asp-route-filterString="publisher" class="filters__link" >
+                        publisher
+                        <img src="./assets/images/icons/swap-vert-icon.svg" alt="sort icon">
+                    </a>
+                </li>
+                <li>
+                    <a asp-action="Index" asp-route-filterString="slider" class="filters__link" >
+                        slider
+                        <img src="./assets/images/icons/swap-vert-icon.svg" alt="sort icon">
+                    </a>
+                </li>
+                <li>
+                    <a asp-action="Index" asp-route-filterString="date" class="filters__link" >
+                        date
+                        <img src="./assets/images/icons/swap-vert-icon.svg" alt="sort icon">
+                    </a>
+                </li>
+            </ul>
+            <a asp-action="Index" class="filters__link--reset">reset filters</a>
+        </div>
+        <div>
+            <!-- Table -->
+            <table class="dashboard__table">
+                <thead>
+                    <tr>
+                        <th>
+                            book name
+                        </th>
+                        <th>
+                            description
+                        </th>
+                        <th>
+                            author
+                        </th>
+                        <th>
+                            publisher
+                        </th>
+                        <th>
+                            in slider
+                        </th>
+                        <th>
+                            created at
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in Model)
+                    {
+                        <tr>
+                            <td>@book.Title</td>
+                            <td>
+                                @if (book.Description.Length > 20)
+                                {
+                                    @(book.Description.Substring(0, 20) + "...")
+                                }
+                                else
+                                {
+                                    @book.Description
+                                }
+                            </td>
+                            <td>@book.AuthorName</td>
+                            <td>@book.Publisher</td>
+                            <td class="table__slider-col">
+                                @if(book.InSlider == true)
+                                {
+                                    <img class="check-icon-slider" src="./assets/images/icons/check-icon-slider.svg" alt="green check icon">
+
+                                }
+                                else
+                                {
+                                    <img class="close-icon-slider" src="./assets/images/icons/close-icon-slider.svg" alt="">
+                                }
+                            </td>
+                            <td>@(book.CreatedAt.ToShortDateString() + " " + book.CreatedAt.ToShortTimeString())</td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id" style="--bg-clr: #73BBA3" class="dashboard-table__action-btn view-icon" data-title="detail">
+                                        <img src="./assets/images/icons/eye-icon.svg" alt="action view icon">
+                                    </a>
+                                    <a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id" style="--bg-clr: #A7E6FF" class="dashboard-table__action-btn edit-icon" data-title="edit">
+                                        <img src="./assets/images/icons/edit-icon.svg" alt="action edit icon">
+                                    </a>
+                                    <form method="post" asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id" class="flex">
+                                        <button type="submit" style="--bg-clr: #ff7260" class="dashboard-table__action-btn del-icon" data-title="delete">
+                                            <img src="./assets/images/icons/delete-icon.svg" alt="action delete icon">
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <!-- End -->
+        </div>
+    </div>
+</main>
+<!-- End -->

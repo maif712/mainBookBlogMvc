@@ -1,0 +1,45 @@
+﻿
+@model Book
+
+
+<main class="md-m-block">
+    <div class="container">
+        <div>
+            <h1 class="create__title">create</h1>
+            <form class="upsert-form" method="post">
+                <div class="form-group">
+                    <label class="form__label" for="title">title*</label>
+                    <input asp-for="Title" id="title" type="text" class="form__input" placeholder="Exp: stars in the sky">
+                    <span asp-validation-for="Title" class="form__error-text"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form__label" for="author">author*</label>
+                    <input asp-for="AuthorName" id="author" type="text" class="form__input" placeholder="Exp: mike smith">
+                    <span asp-validation-for="AuthorName" class="form__error-text"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form__label" for="publisher">publisher*</label>
+                    <input asp-for="Publisher" id="publisher" type="text" class="form__input" placeholder="Exp: mike smith">
+                    <span asp-validation-for="Publisher" class="form__error-text"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form__label" for="description">description*</label>
+                    <textarea asp-for="Description" class="form__input form__input--text-area" name="description" id="description"
+                              placeholder="write your book description here..."></textarea>
+                    <span asp-validation-for="Description" class="form__error-text"></span>
+                </div>
+                <div class="form-group--flex">
+                    <label class="form__label line-heigh-none" for="slider">is in slider</label>
+                    <div class="relative line-heigh-none">
+                        <input asp-for="InSlider" id="slider" type="checkbox" class="form__input--checkbox">
+                        <img class="check-icon" src="~/assets/images/icons/check-icon.svg" alt="chech mark icon">
+                    </div>
+                </div>
+                <div class="form__bnts-wrapper">
+                    <button type="submit" class="form__btn form__submit-btn">add</button>
+                    <a asp-controller="Dashboard" asp-action="Index" class="form__btn form__go-back-btn">go back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,81 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Change the first . with ~ in Asp.net in order to get the currect path -->
+    <link rel="stylesheet" href="~/css/header.css">
+    @await RenderSectionAsync("Styles", required: false)
+    <!-- Add style.css file into the css folder which is located in Asp.net wwwroot folder and add ~/css for the currect path -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Book store</title>
+</head>
+
+<body>
+    <div id="root-layout">
+        <!-- Header and navigation -->
+        <header>
+            <div class="container flex justify-between items-center">
+                <!-- Logo -->
+                <div>
+                    <a href="#" class="logo">
+                        <img src="~/assets/images/icons/menu-book-icon.svg" alt="logo icon" class="book-icon">
+                    </a>
+                </div>
+                <!-- End -->
+                <!-- Search form/Input -->
+                <div class="md-w-40">
+                    <form method="get" asp-controller="Book" asp-action="Search" class="header__serach-form">
+                        <div class="form-group">
+                            <input name="bookTitle" type="search" placeholder="book title...">
+                            <button type="submit" class="search-icon-btn">
+                                <img src="~/assets/images/icons/search-icon.svg" alt="search icon">
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- End -->
+                <!-- Primary navigation menu -->
+                <div>
+                    <nav class="header__primay-nav" aria-label="Primary navigation">
+                        <ul>
+                            <!-- Remove the active class in production mode -->
+                            <li><a class="header__nav-link" asp-controller="Home" asp-action="Index">home</a></li>
+                            <li><a class="header__nav-link" href="#">about us</a></li>
+                            <li><a class="header__nav-link" href="#">contact us</a></li>
+                            <li><a class="header__nav-link" asp-controller="Dashboard" asp-action="Index">dashboard</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- End -->
+            </div>
+        </header>
+        <!-- End -->
+        @RenderBody()
+        <!-- Footer copy right rule -->
+        <footer>
+            <div class="container">
+                <p class="footer-para">
+                    this template is made with <span class="heart-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                             fill="red">
+                            <path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+                        </svg>
+                    </span>
+                    by
+                    <a href="https://github.com/maif712" target="_blank">MAIF</a>
+                </p>
+            </div>
+        </footer>
+        <!-- End -->
+    </div>
+
+    <!-- Change the first . with ~ in Asp.net in order to get the currect path -->
+    @await RenderSectionAsync("Scripts", required: false)
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
